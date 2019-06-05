@@ -8,6 +8,7 @@ namespace Name {
 
             Console.ReadKey();
 
+            Console.WriteLine($"Hello, {Console.ReadKey().Key}");
         }
     }
 }
