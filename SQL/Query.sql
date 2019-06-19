@@ -18,18 +18,18 @@ create table if not exists employees (
 insert into employees values
 	(null, "Ivanov", 	"Igor", 	"Programmist", 	30000),
 	(null, "Gorbunov", 	"Pavel", 	"Producer", 	40000),
-	(null, "Egorov", 	"Stepan", 	"Artist", 		25000),
+	(null, "Egorov", 	"Stepan", 	"Artist",		25000),
 	(null, "Belov", 	"Ivan", 	"Scenarist", 	27000),
 	(null, "Pletkin", 	"Jonny", 	"Programmist", 	50000);
 #=============================== END ================================#
 
 #============================ Задание №2 ============================#
 # Выполняем запрос #1, указанный в задании
-select * from employees 
+select * from employees
 	where salary < 30000;
     
 # Выполняем запрос #2, указанный в задании
-select * from employees 
+select * from employees
 	where salary < 30000 and post = "Artist";
 #=============================== END ================================#
 
@@ -46,14 +46,14 @@ create table if not exists chief_subord(
     
 # Вносим данные о подчинённых и начальниках
 insert into chief_subord values
-	(null, 5, 1),
-    (null, 5, 3),
-    (null, 5, 4),
-    (null, 4, null),
-    (null, 3, null),
-    (null, 2, 5),
-    (null, 1, null),
-    (null, null, 2);
+	(null, 	5, 		1),
+    (null, 	5, 		3),
+    (null, 	5, 		4),
+    (null, 	4, 		null),
+    (null, 	3, 		null),
+    (null, 	2, 		5),
+    (null, 	1, 		null),
+    (null, 	null, 	2);
     
 # Запрашиваем данные о подчинённых сотрудника с id = 5
 select e.first_name as "Subordinate" 
