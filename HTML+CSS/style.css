@@ -1,40 +1,42 @@
 #header {
     background: #000000;
-    height: 100px;
+    height: 80px;
 }
 
 #header_title {
     color: #ffffff;
     
-    text-align: center;
     padding-top: 1%;
+    text-align: center;
     
     font-size: 50px;
 }
  
 #content {
-    background: #eeeeee;
-    padding-left: 30px;
-    padding-bottom: 20px;
+    background: #393d4a;
+    padding: 10px;
 }
  
 .content_block {
     background: #dddddd;
     
     width: 500px;
-    padding: 25px;   
+    padding: 25px;
     margin: 10px;
+    
+    border: solid 3px darkgray;
 }
  
-#rezume_title {
+#content_block_title {
     color: #000000;
-    
-    padding-top: 20px; 
-    padding-left: 50px;  
+    text-align: center;  
     
     font-family: "Arial";
     font-weight: bold;  
-    font-size: 50px;
+    font-size: 20px;
+    
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
 
 .rezume_section {
@@ -54,6 +56,7 @@
     /*maybe after...*/
 }
 
+
 #avatar {
     float: right;
     margin: 30px;
@@ -64,6 +67,7 @@
     width: 40px;
     padding-left: 10px;
 }
+
 
 #footer {
     background: #000000;
