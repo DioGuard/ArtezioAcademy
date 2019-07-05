@@ -57,11 +57,12 @@
 #avatar {
     float: right;
     margin: 30px;
+    width: 600px;
 }
 
 #logo {
-    width: 30px;
-    padding: 20px;
+    width: 40px;
+    padding-left: 10px;
 }
 
 #footer {
