@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS Tasks</title>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+		<script src="scripts/tasks.js"></script>
+    </head>
+    
+    <body>
+        <div class="bar" id="actionBar">
+        	<div class="title">Меню действий</div>
+        	<hr>
+            <input type="radio" name="fun" value="add" checked>Сумма x1 и x2<br>
+            <input type="radio" name="fun" value="addRange">Сумма всех чисел от x1 до x2<br>
+            <input type="radio" name="fun" value="multiplyRange">Произведение всех чисел от x1 до x2<br>
+            <input type="radio" name="fun" value="simpleNumbers">Вывести простые числа от x1 до x2<br>
+            <hr>
+            <a href="game.html">Запустить игру</a>
+        </div>
+        
+        <div class="bar">
+        	<div class="title">Меню ввода</div>
+        	<hr>
+            <b>X1:</b> <input type="text" id="x1"><br>
+            <b>X2:</b> <input type="text" id="x2"><br>
+            <hr>
+            <input type="button" value="Run" onclick="buttonClick()">
+            <input type="button" value="Очистить" onclick="CleanInput()">
+        </div>
+        
+        <div class="bar">
+        	<div class="title">Меню вывода</div>
+        	<hr>
+        	<div id="result">0</div>
+        </div>
+    </body>
+</html>	
