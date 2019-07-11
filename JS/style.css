@@ -31,13 +31,24 @@ a {
   margin-left: 135px;
   padding: 5px;
   
-  border: 2px solid gray;
-  color: rgb(70, 70, 70);
-  background: darkgray;
+  border: 2px solid green;
+  border-radius: 10px;
+  
+  color: darkgreen;
+  background: lightgreen;
 }
 
 a:hover {
-  color: red;
+  color: green;
   box-shadow: 0 0 5px black;
   background: linear-gradient(to top, #e9eacf, #fafdf1);
+}
+
+
+
+#gameScene {
+    background: rgb(219, 219, 219);
+    border: solid 3px red;
+
+    margin-left: -400px;
 }
