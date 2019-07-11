@@ -21,6 +21,8 @@ var places = [];
 
 var pair = [-1, -1];
 
+var delay = 1000;
+
 var shirt = new Image();
 shirt.src = "images/memory_card0.png";
 
@@ -28,6 +30,7 @@ initCardPlaces();
 draw();
 
 cvs.addEventListener("mousedown", function(e) {
+
     var rect = this.getBoundingClientRect(),
         x = e.clientX - rect.left,
         y = e.clientY - rect.top;
@@ -35,21 +38,36 @@ cvs.addEventListener("mousedown", function(e) {
         for(var row = 0; row < amountRow; row++) {
             for(var col = 0; col < amountCol; col++) {
                 if(x >= shiftL + col * (card_W + offset) && x <= shiftL + (col + 1) * (card_W + offset) 
-                && y >= shiftT + row * (card_H + offset) && y <= shiftT + (row + 1) * (card_H + offset)) {
+                && y >= shiftT + row * (card_H + offset) && y <= shiftT + (row + 1) * (card_H + offset)
+                && places[row * amountCol + col][1] != false) {
                         
-                    places[row * amountCol + col][2] = false;
 
                     if(pair[0] == -1) {
+                        places[row * amountCol + col][2] = false;
                         pair[0] = row * amountCol + col;
                         console.log("1: " + pair[0]);
                     }
                     else if (pair[1] == -1 && pair[0] != row * amountCol + col) {
+                        places[row * amountCol + col][2] = false;
                         pair[1] = row * amountCol + col;
                         console.log("2: " + pair[1]);
-                    }
+                        
+                        setTimeout(function() {
+                            if(places[pair[0]][0] == places[pair[1]][0]) {
+                                console.log("Cards: " + pair[0] + " = " + pair[1]);
+                                places[pair[0]][2] = false;
+                                places[pair[1]][2] = false;
+                                places[pair[0]][1] = false;
+                                places[pair[1]][1] = false;
+                                console.log(places);
+                            } else {
+                                places[pair[0]][2] = true;
+                                places[pair[1]][2] = true;
+                            }
 
-                    if(pair[0] != -1 && pair[1] != -1) {
-                        setTimeout(rotateCards(), 1000);
+                            pair[0] = -1;
+                            pair[1] = -1;
+                        }, delay);
                     }
                 }
                     
@@ -60,25 +78,13 @@ cvs.addEventListener("mousedown", function(e) {
 
 
 function rotateCards() {
-    if(places[pair[0]] == places[pair[1]]) {
-        console.log("Cards: " + pair[0] + " = " + pair[1]);
-        places[pair[0]][1] = false;
-        places[pair[1]][1] = false;
-        places[pair[0]][2] = false;
-        places[pair[1]][2] = false;
-    } else {
-        places[pair[0]][2] = true;
-        places[pair[1]][2] = true;
-    }
 
-    pair[0] = -1;
-    pair[1] = -1;
 }
 
 function initCardPlaces() {
     var cards = [];
     
-    for(var i = 0; i < amountOriginal; i++) {
+    for(var i = 1; i <= amountOriginal; i++) {
         var img = new Image();
         img.src = "images/memory_card" + i + ".png";
         cards.push(img);
@@ -103,6 +109,8 @@ function initCardPlaces() {
 }
 
 function draw() {
+    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
     for(var row = 0; row < amountRow; row++) {
         for(var col = 0; col < amountCol; col++) {
             if(places[row * amountCol + col][1] == true) {
@@ -113,6 +121,6 @@ function draw() {
             }
         }
     }
- 
+
     requestAnimationFrame(draw);
 }
