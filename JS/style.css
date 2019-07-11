@@ -47,8 +47,7 @@ a:hover {
 
 
 #gameScene {
-    background: rgb(219, 219, 219);
-    border: solid 3px red;
-
-    margin-left: -400px;
+    /*background: rgb(219, 219, 219);
+    border: solid 3px red;*/
+    margin-left: -450px;
 }
