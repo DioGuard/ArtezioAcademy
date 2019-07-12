@@ -43,11 +43,3 @@ a:hover {
   box-shadow: 0 0 5px black;
   background: linear-gradient(to top, #e9eacf, #fafdf1);
 }
-
-
-
-#gameScene {
-    /*background: rgb(219, 219, 219);
-    border: solid 3px red;*/
-    margin-left: -450px;
-}
