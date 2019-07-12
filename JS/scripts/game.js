@@ -29,6 +29,7 @@ var totalPoints = 0;
 var points = amountOriginal;
 var penalty = 0;
 
+var isEnd = false;
 
 initCardPlaces();
 draw();
@@ -110,6 +111,7 @@ function initCardPlaces() {
 }
 
 function draw() {
+    isEnd = true;
     ctx.clearRect(0, 0, cvs.width, cvs.height);
 
     for(var row = 0; row < amountRow; row++) {
@@ -119,8 +121,21 @@ function draw() {
     
                 if(places[row * amountCol + col][2] == true)
                     ctx.drawImage(shirt, leftCvs + col * (card_W + offset), topCvs + row * (card_H + offset));
+
+                isEnd = false;
             }
         }
+    }
+
+    if(isEnd) {
+        counter.innerHTML = "";
+        ctx.font = "60px Calibri";
+        ctx.fillStyle = "red";
+        ctx.fillText("Конец игры", 300, 250);
+        ctx.font = "30px Calibri";
+        ctx.fillStyle = "white";
+        ctx.fillText("Ваш счёт: " + totalPoints, 370, 300);
+        
     }
 
     requestAnimationFrame(draw);
